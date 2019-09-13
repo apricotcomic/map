@@ -10,6 +10,6 @@ return [
     | This key is Specify the folder name for storing map information images
     |
     */
-        mapFolder => '/home/vagrant/map_img',
+        'mapFolder' => '/home/vagrant/map_img',
 
 ];
