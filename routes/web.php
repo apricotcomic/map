@@ -18,3 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/map/upload', 'map\mapController@upload');
+
+Route::post('/map/upload', 'map\mapController@upload');
