@@ -19,7 +19,7 @@ class MapController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Show the upload.
      *
      * @return \Illuminate\Http\Response
      */
