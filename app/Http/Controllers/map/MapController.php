@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\map;
 
 use App\User;
+use App\map;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -45,9 +46,9 @@ class MapController extends Controller
                 // 画像ファイルであること
                 'image',
                 // MIMEタイプを指定
-                'mimes:jpeg,png',
+                'mimes:jpeg,jpg,png',
                 // 最小縦横120px 最大縦横400px
-                'dimensions:min_width=120,min_height=120,max_width=400,max_height=400',
+                'dimensions:min_width=120,min_height=120,max_width=2400,max_height=2400',
             ]
         ]);
 
@@ -55,8 +56,8 @@ class MapController extends Controller
             $filename = $request->file->store('public/map');
 
             $user = User::find(auth()->id());
-            $user->avatar_filename = basename($filename);
-            $user->save();
+            $map->fileName = basename($filename);
+            $map->save();
 
             return redirect('/map/mapUpload')->with('success', '保存しました。');
         } else {
