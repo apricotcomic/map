@@ -37,6 +37,16 @@
                     </div>
 
                     <div class="form-group">
+                        {!! Form::label('infraCode', '建物コード', ['class' => 'control-label']) !!}
+                        {!! Form::text('infraCode') !!}
+                    </div>
+
+                    <div class="form-group">
+                        {!! Form::label('floor', 'フロア', ['class' => 'control-label']) !!}
+                        {!! Form::text('floor') !!}
+                    </div>
+
+                    <div class="form-group">
                         {!! Form::submit('アップロード', ['class' => 'btn btn-default']) !!}
                     </div>
                     {!! Form::close() !!}

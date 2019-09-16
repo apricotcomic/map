@@ -6,6 +6,9 @@ use App\User;
 use App\map;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Filesystem\Filesystem;
 
 class MapController extends Controller
 {
@@ -53,13 +56,26 @@ class MapController extends Controller
         ]);
 
         if ($request->file('file')->isValid([])) {
-            $filename = $request->file->store('public/map');
 
-            $user = User::find(auth()->id());
-            $map->fileName = basename($filename);
+            $ext = $request->file->getClientOriginalExtension();
+            $filename = $request->infraCode . $request->floor;
+            $filename .= '.';
+            $filename .= $ext;
+
+            $uploadname = $request->file->storeAs('map',$filename);
+
+            $map = new \App\map();
+            $user = Auth::user();
+            $map->memberId = $user->name;
+            $map->infraCode = $request->infraCode;
+            $map->floor = $request->floor;
+            $map->xCoordinate = 0;
+            $map->yCoordinate = 0;
+            $map->zCoordinate = 0;
+            $map->fileName = $filename;
             $map->save();
 
-            return redirect('/map/mapUpload')->with('success', '保存しました。');
+            return redirect('/map/upload')->with('success', '保存しました。');
         } else {
             return redirect()
                 ->back()

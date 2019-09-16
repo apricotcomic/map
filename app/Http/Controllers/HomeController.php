@@ -25,4 +25,13 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    /**
+     * Show phpinfo.
+     *
+     */
+    public function phpinfo()
+    {
+        return view('phpinfo');
+    }
 }
