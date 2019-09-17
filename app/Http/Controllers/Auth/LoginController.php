@@ -25,7 +25,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/map/upload';
+    protected $redirectTo = '/map/menu';
 
     /**
      * Create a new controller instance.

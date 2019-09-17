@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
 
 Auth::routes();
@@ -21,6 +21,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/phpinfo', 'HomeController@phpinfo')->name('phpinfo');
 
-Route::get('/map/upload', 'map\mapController@index');
+Route::get('/map/menu', 'map\mapController@menu')->name('menu');
+
+Route::get('/map/upload', 'map\mapController@index')->name('upload');
 
 Route::post('/map/upload', 'map\mapController@upload');

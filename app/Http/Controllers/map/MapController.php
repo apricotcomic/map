@@ -33,6 +33,14 @@ class MapController extends Controller
     }
 
     /**
+     * Menu Display
+     */
+    public function menu()
+    {
+        return view('/map/menu');
+    }
+
+    /**
      * ファイルアップロード処理
      */
     public function upload(Request $request)
