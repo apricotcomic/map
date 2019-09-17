@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class map extends Model
+class Map extends Model
 {
     //
-    protected $map = 'map';
+    protected $table = 'maps';
 
     /**
      * The attributes that are mass assignable.

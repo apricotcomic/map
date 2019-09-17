@@ -3,12 +3,10 @@
 namespace App\Http\Controllers\map;
 
 use App\User;
-use App\map;
+use App\Map;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Filesystem\Filesystem;
 
 class MapController extends Controller
 {
@@ -33,7 +31,6 @@ class MapController extends Controller
 
         return view('/map/mapUpload');
     }
-
 
     /**
      * ファイルアップロード処理
@@ -63,17 +60,12 @@ class MapController extends Controller
             $filename .= $ext;
 
             $uploadname = $request->file->storeAs('map',$filename);
+            $user = User::find(auth()->id());
 
-            $map = new \App\map();
-            $user = Auth::user();
-            $map->memberId = $user->name;
-            $map->infraCode = $request->infraCode;
-            $map->floor = $request->floor;
-            $map->xCoordinate = 0;
-            $map->yCoordinate = 0;
-            $map->zCoordinate = 0;
-            $map->fileName = $filename;
-            $map->save();
+            $return = \App\Map::updateOrCreate(
+                ['memberId' => $user->email, 'infraCode' => $request->infraCode, 'floor' => $request->floor],
+                ['xCoordinate' => 0, 'yCoordinate' => 0, 'xCoordinate' => 0, 'fileName' => $filename]
+            );
 
             return redirect('/map/upload')->with('success', '保存しました。');
         } else {
