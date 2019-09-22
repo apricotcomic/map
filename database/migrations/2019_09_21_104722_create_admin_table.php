@@ -17,8 +17,8 @@ class CreateAdminTable extends Migration
             $table->bigIncrements('id');
             $table->string('admin_code');
             $table->string('name');
-            $table->sritng('password');
-            $table->sritng('role');
+            $table->string('password');
+            $table->string('role');
             $table->timestamps();
         });
     }
