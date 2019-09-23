@@ -15,6 +15,6 @@ class Map extends Model
      * @var array
      */
     protected $fillable = [
-        'fileName',
+        'memberId','infraCode','floor','fileName','xCoordinate', 'yCoordinate', 'zCoordinate',
     ];
 }

@@ -47,8 +47,10 @@
                     </div>
 
                     <div class="form-group">
-                        {!! Form::submit('アップロード', ['class' => 'btn btn-default']) !!}
+                        {!! Form::submit('アップロード', ['class' => 'btn btn-default', 'name' => 'action']) !!}
+                        {!! Form::submit('back', ['class' => 'btn btn-default', 'name' => 'action']) !!}
                     </div>
+
                     {!! Form::close() !!}
                 </div>
             </div>
