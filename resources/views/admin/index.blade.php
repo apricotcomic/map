@@ -49,14 +49,9 @@
                                             <td>{{ $admin->role}}</td>
                                         </tr>
                                     @endforeach
-
                                 @endif
                             </tbody>
                         </table>
-                    </div>
-
-                    <div class="form-group">
-                        {!! Form::submit('back', ['class' => 'btn btn-default', 'name' => 'action']) !!}
                     </div>
                 </div>
             </div>

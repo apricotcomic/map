@@ -27,4 +27,4 @@ Route::get('/map/upload', 'map\mapController@index')->name('upload');
 
 Route::post('/map/upload', 'map\mapController@upload');
 
-Route::get('/admin', 'adminsController@index')->name('admin');
+Route::resource('admin', 'adminController');

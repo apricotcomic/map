@@ -15,7 +15,7 @@
                     @endif
 
                     <a href="{{ route('upload') }}">Map Upload</a><br>
-                    <a href="{{ route('admin') }}">Admin</a>
+                    <a href="{{ route('admin.index') }}">Admin</a>
                 </div>
             </div>
         </div>
