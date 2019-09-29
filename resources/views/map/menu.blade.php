@@ -14,7 +14,8 @@
                         </div>
                     @endif
 
-                    <a href="{{ route('upload') }}">Map Upload</a>
+                    <a href="{{ route('upload') }}">Map Upload</a><br>
+                    <a href="{{ route('admin') }}">Admin</a>
                 </div>
             </div>
         </div>

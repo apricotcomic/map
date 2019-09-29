@@ -26,3 +26,5 @@ Route::get('/map/menu', 'map\mapController@menu')->name('menu');
 Route::get('/map/upload', 'map\mapController@index')->name('upload');
 
 Route::post('/map/upload', 'map\mapController@upload');
+
+Route::get('/admin', 'adminsController@index')->name('admin');

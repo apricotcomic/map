@@ -13,6 +13,10 @@ class Admin extends Model
         'admin_code',
         'name',
         'password',
-        'role'
+        'role',
+    ];
+
+    protected $guarded = [
+        'id',
     ];
 }
