@@ -8,6 +8,7 @@
                 <div class="card-header">Admin Index</div>
 
                 <div class="card-body">
+
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
@@ -28,6 +29,11 @@
                         </ul>
                         </div>
                     @endif
+
+                    {!! Form::open(['url' => '/admin/create', 'method' => 'get', 'files' => true]) !!}
+                        {!! Form::submit('追加', ['class' => 'btn btn-default', 'name' => 'action']) !!}
+                        @csrf
+                    {!! Form::close() !!}
 
                     <div class="table-resopnsive">
                         <table class="table table-striped">

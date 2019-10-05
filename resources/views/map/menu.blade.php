@@ -8,6 +8,7 @@
                 <div class="card-header">Menu</div>
 
                 <div class="card-body">
+                    @csrf
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
