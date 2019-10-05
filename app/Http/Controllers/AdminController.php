@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Admin;
 
 class AdminController extends Controller
@@ -43,7 +44,7 @@ class AdminController extends Controller
         $admin->admin_code = $request->admin_code;
         $admin->name = $request->name;
         $admin->role = $request->role;
-        $admin->password = $request->password;
+        $admin->password = Hash::make($request->password);
         $admin->save();
         return redirect()->route('admin.index');
     }
