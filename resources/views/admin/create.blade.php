@@ -36,7 +36,7 @@
                             <label for="admin_code" class="col-md-4 col-form-label text-md-right">{{ __('Admin Code') }}</label>
 
                             <div class="col-md-6">
-                                <input id="admin_code" type="text" class="form-control" name="admin_code" value="{{ old('admin_code') }}" required autocomplete="admin_code">
+                                <input id="admin_code" type="text" class="form-control" name="admin_code" value="{{ old('admin_code') }}">
                             </div>
                         </div>
 
@@ -44,7 +44,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autocomplete="name">
+                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}">
                             </div>
                         </div>
 
@@ -52,7 +52,7 @@
                             <label for="role" class="col-md-4 col-form-label text-md-right">{{ __('Role') }}</label>
 
                             <div class="col-md-6">
-                                <input id="role" type="text" class="form-control" name="role" value="{{ old('role') }}" required autocomplete="role">
+                                <input id="role" type="text" class="form-control" name="role" value="{{ old('role') }}">
                             </div>
                         </div>
 
@@ -60,7 +60,7 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -74,16 +74,16 @@
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
                             </div>
                         </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary" name='add'>
-                                    {{ __('登録') }}
+                                <button type="submit" class="btn btn-primary" name='action' value='add'>
+                                    {{ __('追加') }}
                                 </button>
-                                <button type="submit" class="btn btn-primary" name='back'>
+                                <button type="submit" class="btn btn-primary" name='action' value='back'>
                                     {{ __('戻る') }}
                                 </button>
                             </div>

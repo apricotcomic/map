@@ -17,7 +17,7 @@ class AdminController extends Controller
     {
         //
         $admins = \App\Admin::all();
-        return view('admin/index', compact('admins'));
+        return view('admin.index', compact('admins'));
     }
 
     /**
@@ -28,7 +28,7 @@ class AdminController extends Controller
     public function create()
     {
         //
-        return view('admin/create');
+        return view('admin.create');
     }
 
     /**
@@ -40,13 +40,17 @@ class AdminController extends Controller
     public function store(Request $request)
     {
         //
-        $admin = new Admin;
-        $admin->admin_code = $request->admin_code;
-        $admin->name = $request->name;
-        $admin->role = $request->role;
-        $admin->password = Hash::make($request->password);
-        $admin->save();
-        return redirect()->route('admin.index');
+        if($request->action === 'back') {
+            return redirect()->route('admin.index');
+        } else {
+            $admin = new Admin;
+            $admin->admin_code = $request->admin_code;
+            $admin->name = $request->name;
+            $admin->role = $request->role;
+            $admin->password = Hash::make($request->password);
+            $admin->save();
+            return redirect()->route('admin.index');
+        }
     }
 
     /**
@@ -58,6 +62,8 @@ class AdminController extends Controller
     public function show($id)
     {
         //
+        $admins = \App\Admin::find($id);
+        return view('admin.show', compact('admins'));
     }
 
     /**
@@ -66,9 +72,12 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($request)
     {
         //
+        if($request->action === 'back') {
+            return redirect()->route('admin.index');
+        }
     }
 
     /**
