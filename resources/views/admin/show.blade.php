@@ -8,28 +8,6 @@
                 <div class="card-header">Admin Add</div>
 
                 <div class="card-body">
-
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{--成功時のメッセージ--}}
-                    @if (session('success'))
-                    <div class="alert alert-success">{{ session('success') }}</div>
-                    @endif
-                    {{-- エラーメッセージ --}}
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                        </div>
-                    @endif
-
                     <form action="/admin/{{ $admins->id }}/edit" method="GET">
                         @csrf
                         <div class="form-group row">
@@ -66,7 +44,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary" name='action' value='edit'>
+                                <button type="button" class="btn btn-primary" onclick="location.href='{{ route('admin.edit', $admins->id) }}'">
                                     {{ __('変更') }}
                                 </button>
                                 <button type="button" class="btn btn-primary" onclick="history.back()">

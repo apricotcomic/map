@@ -72,12 +72,11 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($request)
+    public function edit($id)
     {
         //
-        if($request->action === 'back') {
-            return redirect()->route('admin.index');
-        }
+        $admins = \App\Admin::find($id);
+        return view('admin.edit', compact('admins'));
     }
 
     /**
@@ -90,6 +89,17 @@ class AdminController extends Controller
     public function update(Request $request, $id)
     {
         //
+        if($request->action === 'back') {
+            return redirect()->route('admin.index');
+        } else {
+            $admin = \App\Admin::find($id);
+            $admin->admin_code = $request->admin_code;
+            $admin->name = $request->name;
+            $admin->role = $request->role;
+            $admin->password = Hash::make($request->password);
+            $admin->save();
+            return redirect()->route('admin.index');
+        }
     }
 
     /**
