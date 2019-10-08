@@ -30,10 +30,9 @@
                         </div>
                     @endif
 
-                    {!! Form::open(['url' => '/admin/create', 'method' => 'get', 'files' => true]) !!}
-                        {!! Form::submit('追加', ['class' => 'btn btn-default', 'name' => 'action']) !!}
-                        @csrf
-                    {!! Form::close() !!}
+                    <button type="button" class="btn btn-primary" onclick="location.href='{{ route('admin.create') }}'">
+                        {{ __('追加') }}
+                    </button>
 
                     <div class="table-resopnsive">
                         <table class="table table-striped">

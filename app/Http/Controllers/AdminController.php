@@ -42,15 +42,25 @@ class AdminController extends Controller
         //
         if($request->action === 'back') {
             return redirect()->route('admin.index');
-        } else {
-            $admin = new Admin;
-            $admin->admin_code = $request->admin_code;
-            $admin->name = $request->name;
-            $admin->role = $request->role;
-            $admin->password = Hash::make($request->password);
-            $admin->save();
-            return redirect()->route('admin.index');
         }
+        // validation
+        $rules = [
+            'admin_code' => ['required', 'unique:admin'],
+            'role' => ['max:1'],
+            'password' => ['required', 'string', 'min:8', 'confirmed']
+        ];
+
+        $this->validate($request, $rules);
+
+        // Data insert
+        $admin = new Admin;
+        $admin->admin_code = $request->admin_code;
+        $admin->name = $request->name;
+        $admin->role = $request->role;
+        $admin->password = Hash::make($request->password);
+        $admin->save();
+        return redirect()->route('admin.index');
+
     }
 
     /**
