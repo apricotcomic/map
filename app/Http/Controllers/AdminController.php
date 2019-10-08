@@ -111,5 +111,8 @@ class AdminController extends Controller
     public function destroy($id)
     {
         //
+        $admins = \App\Admin::find($id);
+        $admins->delete();
+        return redirect()->route('admin.index');
     }
 }
