@@ -45,8 +45,8 @@ class AdminController extends Controller
         }
         // validation
         $rules = [
-            'admin_code' => ['required', 'unique:admin'],
-            'role' => ['max:1'],
+            'admin_code' => ['required', 'integer', 'unique:admin'],
+            'role' => ['size:1'],
             'password' => ['required', 'string', 'min:8', 'confirmed']
         ];
 
@@ -101,15 +101,28 @@ class AdminController extends Controller
         //
         if($request->action === 'back') {
             return redirect()->route('admin.index');
-        } else {
-            $admin = \App\Admin::find($id);
-            $admin->admin_code = $request->admin_code;
-            $admin->name = $request->name;
-            $admin->role = $request->role;
-            $admin->password = Hash::make($request->password);
-            $admin->save();
-            return redirect()->route('admin.index');
         }
+
+        // validation
+        $rules = [
+            'admin_code' => ['required', 'integer'],
+            'role' => ['size:1'],
+            'password' => ['sometimes', 'nullable', 'string', 'min:8', 'confirmed']
+        ];
+
+        $this->validate($request, $rules);
+
+        // Data insert
+        $admin = \App\Admin::find($id);
+        $admin->admin_code = $request->admin_code;
+        $admin->name = $request->name;
+        $admin->role = $request->role;
+        if (!empty($request->password)) {
+            $admin->password = Hash::make($request->password);
+        }
+        $admin->save();
+        return redirect()->route('admin.index');
+
     }
 
     /**
