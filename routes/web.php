@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', function () {
     return view('auth/login');
 });
@@ -21,10 +23,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/phpinfo', 'HomeController@phpinfo')->name('phpinfo');
 
-Route::get('/map/menu', 'map\mapController@menu')->name('menu');
+Route::get('/map/menu', 'map\uploadController@menu')->name('menu');
 
-Route::get('/map/upload', 'map\mapController@index')->name('upload');
+Route::get('/map/upload', 'map\uploadController@index')->name('upload');
 
-Route::post('/map/upload', 'map\mapController@upload');
+Route::post('/map/upload', 'map\uploadController@upload');
 
 Route::resource('admin', 'adminController');
+
+Route::resource('floor', 'FloorController');
