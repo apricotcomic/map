@@ -104,10 +104,10 @@ return [
     'required_without_all' => ':values がすべて存在していないのに :attribute が空です',
     'same' => ':attribute が :other と等しくありません',
     'size' => [
-        'numeric' => ':attribute が :size と等しくありません',
-        'file' => ':attribute が :size KB と等しくありません',
-        'string' => ':attribute が :size  と等しくありません',
-        'array' => ':attribute が :size と等しくありません',
+        'numeric' => ':attribute が :size ではありません',
+        'file' => ':attribute が :size KB ではありません',
+        'string' => ':attribute が :size  文字ではありません',
+        'array' => ':attribute が :size ではありません',
     ],
     'starts_with' => ':attribute が :values で始まっていません',
     'string' => ':attribute が文字ではありません',
@@ -145,6 +145,11 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'admin_code' => '管理者コード',
+        'name' => '氏名',
+        'role' => '権限',
+        'password' => 'パスワード',
+    ],
 
 ];
