@@ -37,6 +37,8 @@ class MapService
             $filename .= '.';
             $filename .= $ext;
 
+            $uploadname = $request->file->storeAs('map',$filename);
+
             $user = Auth::user();
 
             $return = \App\Map::updateOrCreate(

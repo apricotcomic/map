@@ -1,24 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="map_container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="map_col">
             <div class="card">
                 <div class="card-header">Floor Show</div>
 
                 <div class="card-body">
                     @csrf
                     <div class="form-group row">
-                        <label for="id" class="col-md-4 col-form-label text-md-right">{{ __('ID') }}</label>
-
-                        <div class="col-md-6 input-group-text">
-                            {{ $floors->id }}
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="floor_code" class="col-md-4 col-form-label text-md-right">{{ __('floor Code') }}</label>
+                        <label for="floorName" class="col-md-4 col-form-label text-md-right">{{ __('floor Name') }}</label>
 
                         <div class="col-md-6 input-group-text">
                             {{ $floors->floorName }}
@@ -26,9 +18,30 @@
                     </div>
 
                     <div class="form-group row">
-                        <div class="col-md-6 input-group-text">
+                        <div class="img">
                             <img src="{{ asset($map) }}">
                         </div>
+                    </div>
+
+                    <div class="table-resopnsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>{{__('ID')}}</th>
+                                    <th>{{__('floorName')}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if(isset($facilities))
+                                    @foreach ($facilities as $facility)
+                                        <tr>
+                                            <td><a href="{{ route('floor.show', $facility->id) }}">{{ $facility->id }}</a></td>
+                                            <td>{{ $facility->facilityName }}</td>
+                                        </tr>
+                                    @endforeach
+                                @endif
+                            </tbody>
+                        </table>
                     </div>
 
                     <div class="form-group row mb-0">

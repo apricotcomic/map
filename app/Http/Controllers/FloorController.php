@@ -51,8 +51,9 @@ class FloorController extends Controller
     {
         //
         $floors = \App\Floor::find($id);
-        $map = "/strage/app/map/0015F.jpg";
-        return view('floor.show', compact('floors','map'));
+        $map = "/storage/map/" . $floors->fileName;
+        $facilities = \App\Floor::find($id)->facilities;
+        return view('floor.show', compact('floors','map','facilities'));
     }
 
     /**

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFloorsTable extends Migration
+class CreateFacilitiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,13 @@ class CreateFloorsTable extends Migration
      */
     public function up()
     {
-        //
-        Schema::create('floors', function (Blueprint $table) {
+        Schema::create('facilities', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('memberId');
-            $table->string('placeCode');
-            $table->string('floor');
+            $table->bigInteger('floor_id');
+            $table->integer('facilityNo');
             $table->integer('xCoordinate');
             $table->integer('yCoordinate');
-            $table->integer('zCoordinate');
-            $table->string('fileName');
+            $table->string('facilityName');
             $table->timestamps();
         });
     }
@@ -34,7 +31,6 @@ class CreateFloorsTable extends Migration
      */
     public function down()
     {
-        //
-        Schema::dropIfExists('floors');
+        Schema::dropIfExists('facilities');
     }
 }

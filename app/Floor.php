@@ -10,12 +10,15 @@ class Floor extends Model
     protected $table = 'floors';
 
     protected $fillable = [
-        'membaerId',
-        'placeCode',
+        'place_id',
         'floorName',
         'xCoordinate',
         'yCoordinate',
         'xCoordinate',
         'fileName',
     ];
+
+    public function facilities() {
+        return $this->hasMany(Facility::class);
+    }
 }

@@ -16,7 +16,6 @@ class CreateCustomersTable extends Migration
         //
         Schema::create('customers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('memberId');
             $table->string('memberName');
             $table->string('address1');
             $table->string('address2');
@@ -38,3 +37,4 @@ class CreateCustomersTable extends Migration
         Schema::dropIfExists('customers');
     }
 }
+

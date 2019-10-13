@@ -1,0 +1,30 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+
+@media (min-width: 576px) {
+    .map_container {
+      max-width: 540px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .map_container {
+      max-width: 720px;
+    }
+
+    .map_col {
+        flex: 0 0 90%;
+        max-width: 90%;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .map_container {
+      max-width: 960px;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .map_container {
+      max-width: 1140px;
+    }
+  }
