@@ -32,3 +32,9 @@ Route::post('/map/upload', 'map\uploadController@upload');
 Route::resource('admin', 'adminController');
 
 Route::resource('floor', 'FloorController');
+
+Route::resource('facility', 'FacilityController');
+
+Route::post('facility', 'FacilityController@add')->name('facility.add');
+
+Route::get('/vew', function(){ return view('vewsample'); });

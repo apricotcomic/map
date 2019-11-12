@@ -17,25 +17,25 @@
                         </div>
                     </div>
 
-                    <vue-test></vue-test>
-                    <form style="display:inline" action="{{ route('facility.add') }}" method="post">
-                        @csrf
-
-                    </form>
+                    <div class="form-group row">
+                        <div class="map_img">
+                            <img src="{{ asset($map) }}">
+                        </div>
+                    </div>
 
                     <div class="table-resopnsive">
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th>{{__('FacilityNo')}}</th>
-                                    <th>{{__('FacilityName')}}</th>
+                                    <th>{{__('facilityID')}}</th>
+                                    <th>{{__('facilityName')}}</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @if(isset($facilities))
                                     @foreach ($facilities as $facility)
                                         <tr>
-                                            <td><a href="{{ route('floor.show', $facility->facilityNo) }}">{{ $facility->facilityNo }}</a></td>
+                                            <td><a href="{{ route('floor.show', $facility->id) }}">{{ $facility->id }}</a></td>
                                             <td>{{ $facility->facilityName }}</td>
                                         </tr>
                                     @endforeach
@@ -60,7 +60,7 @@
                                 {{ __('戻る') }}
                             </button>
                         </div>
-                    </div>
+                        </div>
                 </div>
             </div>
         </div>
