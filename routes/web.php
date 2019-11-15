@@ -35,6 +35,6 @@ Route::resource('floor', 'FloorController');
 
 Route::resource('facility', 'FacilityController');
 
-Route::post('facility', 'FacilityController@add')->name('facility.add');
+Route::get('/facility', 'FacilityController@add')->name('facility.add');
 
 Route::get('/vew', function(){ return view('vewsample'); });

@@ -15,13 +15,10 @@
                         <div class="col-md-6 input-group-text">
                             {{ $floors->floorName }}
                         </div>
+
                     </div>
 
-                    <vue-test></vue-test>
-                    <form style="display:inline" action="{{ route('facility.add') }}" method="post">
-                        @csrf
-
-                    </form>
+                    <floor-map route="{{ route('facility.add') }}"></floor-map>
 
                     <div class="table-resopnsive">
                         <table class="table table-striped">
