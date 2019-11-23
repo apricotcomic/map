@@ -15,11 +15,9 @@
                         <div class="col-md-6 input-group-text">
                             {{ $floors->floorName }}
                         </div>
-
                     </div>
 
-                    <floor-map route="{{ route('facility.add') }}"></floor-map>
-
+                    <floor-map></floor-map>
                     <div class="table-resopnsive">
                         <table class="table table-striped">
                             <thead>
@@ -32,7 +30,7 @@
                                 @if(isset($facilities))
                                     @foreach ($facilities as $facility)
                                         <tr>
-                                            <td><a href="{{ route('floor.show', $facility->facilityNo) }}">{{ $facility->facilityNo }}</a></td>
+                                            <td><a href="{{ route('facility.show', $facility->id) }}">{{ $facility->id }}</a></td>
                                             <td>{{ $facility->facilityName }}</td>
                                         </tr>
                                     @endforeach
@@ -43,19 +41,17 @@
 
                     <div class="form-group row mb-0">
                         <div class="col-md-6 offset-md-4">
-                            <button type="button" class="btn btn-primary" onclick="location.href='{{ route('floor.edit', $floors->id) }}'">
-                                {{ __('変更') }}
-                            </button>
-                            <form style="display:inline" action="{{ route('floor.destroy', $floors->id) }}" method="post">
+                            <form action="{{ route('facility.add') }}" method="post">
                                 @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger">
-                                    {{ __('削除') }}
+                                <input type="hidden" name="floor_id" value="{{ $floors->id }}">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('追加') }}
+                                </button>
+
+                                <button type="button" class="btn btn-primary" onclick="history.back()">
+                                    {{ __('戻る') }}
                                 </button>
                             </form>
-                            <button type="button" class="btn btn-primary" onclick="history.back()">
-                                {{ __('戻る') }}
-                            </button>
                         </div>
                     </div>
                 </div>

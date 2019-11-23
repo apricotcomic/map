@@ -1845,9 +1845,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['route'],
   data: function data() {
@@ -1858,14 +1855,9 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    facilityAdd: function facilityAdd(e, formName, method) {
+    facilityAdd: function facilityAdd(e) {
       this.txtx = e.pageX;
       this.txty = e.pageY;
-      var f = document.forms[formName];
-      f.method = this.method;
-      f.action = this.route;
-      f.submit();
-      return true;
     }
   }
 });
@@ -37179,16 +37171,7 @@ var render = function() {
     [
       _c("p", [_vm._v("x:" + _vm._s(_vm.txtx) + " y:" + _vm._s(_vm.txty))]),
       _vm._v(" "),
-      _c("img", { attrs: { src: _vm.map, width: "800px", height: "auto" } }),
-      _vm._v(" "),
-      _c(
-        "form",
-        {
-          staticStyle: { display: "inline" },
-          attrs: { name: "floor", action: _vm.route, method: "post" }
-        },
-        [_vm._v("\n        @csrf\n    ")]
-      )
+      _c("img", { attrs: { src: _vm.map, width: "800px", height: "auto" } })
     ]
   )
 }

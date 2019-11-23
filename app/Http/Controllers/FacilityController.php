@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Facility;
 
 class FacilityController extends Controller
 {
@@ -35,6 +36,15 @@ class FacilityController extends Controller
     public function store(Request $request)
     {
         //
+        $facility = new Facility;
+        $facility->floor_id = $request->floor_id;
+        $facility->facilityNo = 0;
+        $facility->xCoordinate = $request->XCoordinate;
+        $facility->yCoordinate = $request->YCoordinate;
+        $facility->facilityName = $request->facilityName;
+
+        $facility->save();
+        return redirect()->route('floor.show', $request->floor_id);
     }
 
     /**
@@ -46,6 +56,8 @@ class FacilityController extends Controller
     public function show($id)
     {
         //
+        $facility = \App\Facility::find($id);
+        return view('facility.show', compact('facility'));
     }
 
     /**
@@ -91,6 +103,8 @@ class FacilityController extends Controller
     public function add(Request $request)
     {
         //
+        $input = $request->all();
+
         return view('facility.add', compact('request'));
     }
 }
