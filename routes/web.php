@@ -37,4 +37,8 @@ Route::resource('facility', 'FacilityController');
 
 Route::post('/facility/add', 'FacilityController@add')->name('facility.add');
 
+Route::resource('item', 'ItemController');
+
+Route::resource('binditem', 'BinditemController');
+
 Route::get('/vew', function(){ return view('vewsample'); });

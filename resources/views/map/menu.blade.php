@@ -17,6 +17,7 @@
 
                     <a href="{{ route('floor.index') }}">Floor</a><br>
                     <a href="{{ route('upload') }}">Map Upload</a><br>
+                    <a href="{{ route('item.index') }}">Item</a><br>
                     <a href="{{ route('admin.index') }}">Admin</a>
                 </div>
             </div>
