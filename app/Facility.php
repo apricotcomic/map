@@ -18,4 +18,10 @@ class Facility extends Model
     public function floors() {
         return $this->belongsTo(Floor::class);
     }
+
+    public function bind()
+    {
+        return $this->hasMany('App\binditem', 'facility_id', 'id');
+    }
+
 }

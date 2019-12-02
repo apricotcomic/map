@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Facility;
+use App\binditem;
+use App\DataAccess\itemsDAO;
 
 class FacilityController extends Controller
 {
@@ -39,9 +41,10 @@ class FacilityController extends Controller
         $facility = new Facility;
         $facility->floor_id = $request->floor_id;
         $facility->facilityNo = 0;
-        $facility->xCoordinate = $request->XCoordinate;
-        $facility->yCoordinate = $request->YCoordinate;
-        $facility->facilityName = $request->facilityName;
+        $facility->xCoordinate = $request->xcoordinate;
+        $facility->yCoordinate = $request->ycoordinate;
+        $facility->facilityName = $request->facility_name;
+        $facility->facilityType = $request->facility_type;
 
         $facility->save();
         return redirect()->route('floor.show', $request->floor_id);
@@ -57,7 +60,9 @@ class FacilityController extends Controller
     {
         //
         $facility = \App\Facility::find($id);
-        return view('facility.show', compact('facility'));
+        $itemsDAO = new itemsDAO;
+        $items = $itemsDAO->getItemName($id);
+        return view('facility.show', compact('facility','items'));
     }
 
     /**
@@ -69,6 +74,8 @@ class FacilityController extends Controller
     public function edit($id)
     {
         //
+        $facility = \App\Facility::find($id);
+        return view('facility.edit', compact('facility'));
     }
 
     /**
@@ -81,6 +88,17 @@ class FacilityController extends Controller
     public function update(Request $request, $id)
     {
         //
+        if($request->action === 'back') {
+            return redirect()->route('item.index');
+        }
+
+        $facility = \App\Facility::find($id);
+        $facility->x_coordinate = $request->xCoordinate;
+        $facility->y_coordinate = $request->yCoordinate;
+        $facility->facility_name = $request->facilityName;
+        $facility->facility_type = $request->facilityType;
+        $facility->save();
+        return redirect()->route('item.index');
     }
 
     /**
@@ -92,6 +110,9 @@ class FacilityController extends Controller
     public function destroy($id)
     {
         //
+        $facility = \App\Facility::find($id);
+        $facility->delete();
+        return redirect()->route('facility.add');
     }
 
     /**

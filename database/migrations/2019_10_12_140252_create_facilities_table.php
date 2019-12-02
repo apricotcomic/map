@@ -20,6 +20,7 @@ class CreateFacilitiesTable extends Migration
             $table->integer('xCoordinate');
             $table->integer('yCoordinate');
             $table->string('facilityName');
+            $table->string('facilityType');
             $table->timestamps();
         });
     }

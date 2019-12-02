@@ -10,14 +10,6 @@
                 <div class="card-body">
                     @csrf
                     <div class="form-group row">
-                        <label for="floorName" class="col-md-4 col-form-label text-md-right">{{ __('Item Name') }}</label>
-
-                        <div class="col-md-6 input-group-text">
-                            {{ $item->itemName }}
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
                         <label for="item_id">{{ __('Item Id') }}</label>
                         <div class="col-md-2">
                             <input id="item_id" type="text" class="form-control" name="item_id" value="{{ old('item_id', $item->id) }}">

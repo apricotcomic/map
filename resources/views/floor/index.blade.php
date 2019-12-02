@@ -33,7 +33,7 @@
                     <button type="button" class="btn btn-primary" onclick="location.href='{{ route('floor.create') }}'">
                         {{ __('追加') }}
                     </button>
-                    <button type="button" class="btn btn-primary" onclick="history.back()">
+                    <button type="button" class="btn btn-primary" onclick="location.href='{{ route('menu') }}'">
                         {{ __('戻る') }}
                     </button>
 

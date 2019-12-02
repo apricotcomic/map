@@ -28,6 +28,7 @@ class FloorController extends Controller
     public function create()
     {
         //
+        return view('floor.create');
     }
 
     /**
@@ -39,6 +40,16 @@ class FloorController extends Controller
     public function store(Request $request)
     {
         //
+        $floor = new Floor;
+        $floor->place_id = $request->place_id;
+        $floor->floorName = $request->floor_name;
+        $floor->xCoordinate = $request->floor_xcoordinate;
+        $floor->yCoordinate = $request->floor_ycoordinate;
+        $floor->zCoordinate = $request->floor_zcoordinate;
+        $floor->fileName = $request->map_file;
+
+        $floor->save();
+        return redirect()->route('floor.index');
     }
 
     /**

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Items;
+use App\Item;
 use Illuminate\Http\Request;
 
 class ItemController extends Controller
@@ -15,7 +15,7 @@ class ItemController extends Controller
     public function index()
     {
         //
-        $items = \App\Items::all();
+        $items = \App\Item::all();
         return view('item.index', compact('items'));
     }
 
@@ -39,7 +39,7 @@ class ItemController extends Controller
     public function store(Request $request)
     {
         // Data insert
-        $item = new Items;
+        $item = new Item;
         $item->itemName = $request->itemName;
         $item->attribute = $request->itemAttribute;
         $item->save();
@@ -55,7 +55,7 @@ class ItemController extends Controller
     public function show($id)
     {
         //
-        $item = \App\Items::find($id);
+        $item = \App\Item::find($id);
         return view('item.show', compact('item'));
     }
 
@@ -68,7 +68,7 @@ class ItemController extends Controller
     public function edit($id)
     {
         //
-        $item = \App\Items::find($id);
+        $item = \App\Item::find($id);
         return view('item.edit', compact('item'));
     }
 
@@ -86,7 +86,7 @@ class ItemController extends Controller
             return redirect()->route('item.index');
         }
 
-        $item = \App\Items::find($id);
+        $item = \App\Item::find($id);
         $item->itemName = $request->itemName;
         $item->attribute = $request->itemAttribute;
         $item->save();
@@ -102,7 +102,7 @@ class ItemController extends Controller
     public function destroy($id)
     {
         //
-        $item = \App\Items::find($id);
+        $item = \App\Item::find($id);
         $item->delete();
         return redirect()->route('item.index');
 

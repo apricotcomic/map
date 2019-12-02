@@ -35,10 +35,10 @@
                     <floor-map></floor-map>
 
                     <div class="form-group row">
-                        <div class="col-md-2">
+                        <div class="col-md-1">
                             <label for="floor_id">{{ __('Floor Id') }}</label>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <label for="facilityName">{{ __('Facility Name') }}</label>
                         </div>
                         <div class="col-md-2">
@@ -47,19 +47,25 @@
                         <div class="col-md-2">
                             <label for="Y">{{ __('Y') }}</label>
                         </div>
+                        <div class="col-md-3">
+                            <label for="type">{{ __('Type') }}</label>
+                        </div>
                     </div>
                     <div class="form-group row">
-                        <div class="col-md-2">
+                        <div class="col-md-1">
                             <input id="floor_id" type="text" class="form-control" name="floor_id" value="{{ $request->floor_id }}">
                         </div>
-                        <div class="col-md-6">
-                            <input id="facilityName" type="text" class="form-control" name="facilityName" value="{{ old('facilityName') }}">
+                        <div class="col-md-4">
+                            <input id="facility_name" type="text" class="form-control" name="facility_name" value="{{ old('facility_name') }}">
                         </div>
                         <div class="col-md-2">
-                            <input id="XCoordinate" type="text" class="form-control" name="XCoordinate" value="{{ old('XCoordinate') }}">
+                            <input id="xcoordinate" type="text" class="form-control" name="xcoordinate" value="{{ old('xcoordinate') }}">
                         </div>
                         <div class="col-md-2">
-                            <input id="YCoordinate" type="text" class="form-control" name="YCoordinate" value="{{ old('YCoordinate') }}">
+                            <input id="ycoordinate" type="text" class="form-control" name="ycoordinate" value="{{ old('ycoordinate') }}">
+                        </div>
+                        <div class="col-md-3">
+                            <input id="facility_type" type="text" class="form-control" name="facility_type" value="{{ old('facility_type') }}">
                         </div>
                     </div>
 
