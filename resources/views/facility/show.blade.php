@@ -74,6 +74,11 @@
                                 @endif
                             </tbody>
                         </table>
+                        <div class="col-md-6 offset-md-4">
+                            <button type="submit" class="btn btn-primary" name="itemadd">
+                                {{ __('追加') }}
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
