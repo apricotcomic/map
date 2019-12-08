@@ -15,7 +15,7 @@ class CreateBinditemsTable extends Migration
     {
         Schema::create('binditems', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('facilityId');
+            $table->bigInteger('facility_id');
             $table->bigInteger('itemId');
             $table->timestamps();
         });
